@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Nunito', ui-rounded, 'SF Pro Rounded', system-ui, sans-serif;
+
+  --color-bark-50: #fbf5ec;
+  --color-bark-100: #f4e7d5;
+  --color-bark-200: #e6d0b1;
+  --color-bark-300: #d4b184;
+  --color-bark-400: #bd8f5c;
+  --color-bark-500: #a5743f;
+  --color-bark-600: #855a30;
+  --color-bark-700: #664329;
+  --color-bark-800: #4a3122;
+  --color-bark-900: #33221a;
+
+  --color-leaf: #8fb072;
+  --color-berry: #e4776f;
+  --color-sky: #7fa8cc;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #fdf8f0 0%, #f6e9d6 55%, #eedcc2 100%) fixed;
+  color: var(--color-bark-800);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* The play view owns the whole viewport; nothing inside it should rubber-band. */
+.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}
